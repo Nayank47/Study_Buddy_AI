@@ -3,16 +3,9 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 
 export async function extractPdfText(buffer, filePath = "PDF") {
-  const { PDFParse } = loadPdfParse();
-  const parser = new PDFParse({ data: buffer });
-  let text;
-
-  try {
-    const result = await parser.getText();
-    text = result?.text ?? "";
-  } finally {
-    await parser.destroy?.();
-  }
+  const pdf = loadPdfParse();
+  const result = await pdf(buffer);
+  const text = result?.text ?? "";
 
   const cleaned = text.replace(/\u0000/g, "").trim();
   if (!cleaned) {
@@ -26,7 +19,11 @@ export async function extractPdfText(buffer, filePath = "PDF") {
 
 function loadPdfParse() {
   try {
-    return require("pdf-parse");
+    const pdfParse = require("pdf-parse");
+    if (typeof pdfParse !== "function") {
+      throw new Error("Expected pdf-parse v1 function API.");
+    }
+    return pdfParse;
   } catch (error) {
     throw new Error(`Could not load pdf-parse in this deployment: ${error.message}`);
   }
