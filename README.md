@@ -94,6 +94,23 @@ http://localhost:3000
 
 The website accepts pasted notes or file uploads for PDF, TXT, and Markdown. Leave `Demo` on to test without an API key. Turn it off after setting `ANTHROPIC_API_KEY` to generate with Claude.
 
+Default local login:
+
+```text
+Username: student
+Password: studybuddy123
+```
+
+For a deployed Vercel app, set your own static credentials in Environment Variables:
+
+```text
+STUDY_BUDDY_USERNAME
+STUDY_BUDDY_PASSWORD
+STUDY_BUDDY_AUTH_SECRET
+```
+
+`STUDY_BUDDY_AUTH_SECRET` signs short-lived login tokens. If it is not set, the app falls back to `ANTHROPIC_API_KEY`, then a local development secret.
+
 ## Run In Visual Studio Code
 
 1. Open Visual Studio Code.
@@ -127,7 +144,11 @@ This project is Vercel-ready:
 6. Add an environment variable:
    - Name: `ANTHROPIC_API_KEY`
    - Value: your Anthropic API key
-7. Click `Deploy`.
+7. Optional but recommended: add static login variables:
+   - `STUDY_BUDDY_USERNAME`
+   - `STUDY_BUDDY_PASSWORD`
+   - `STUDY_BUDDY_AUTH_SECRET`
+8. Click `Deploy`.
 
 Leave Demo mode on if you want the deployed site to work without an API key. Turn Demo mode off in the website when you want real Claude generation.
 
@@ -175,6 +196,7 @@ This works for normal text-based PDFs, such as exported lecture notes, articles,
 ```text
 src/
   agent.js          Orchestrates preprocessing, generation, parsing, validation, formatting
+  auth.js           Static login credential checks and signed session tokens
   claudeClient.js   Anthropic SDK integration
   cli.js            Command-line interface
   fileLoader.js     Routes .txt/.md/.pdf input files

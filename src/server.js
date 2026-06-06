@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createFlashcards } from "./agent.js";
+import { createSessionToken, isRequestAuthenticated, verifyStaticCredentials } from "./auth.js";
 import { notesFromRequest } from "./requestNotes.js";
 
 const PORT = Number(process.env.PORT ?? 3000);
@@ -21,6 +22,11 @@ export const server = createServer(async (request, response) => {
   try {
     if (request.method === "GET" && request.url === "/api/health") {
       sendJson(response, 200, { ok: true });
+      return;
+    }
+
+    if (request.method === "POST" && request.url === "/api/login") {
+      await handleLogin(request, response);
       return;
     }
 
@@ -47,6 +53,11 @@ if (fileURLToPath(import.meta.url) === resolve(process.argv[1] ?? "")) {
 }
 
 async function handleFlashcards(request, response) {
+  if (!isRequestAuthenticated(request)) {
+    sendJson(response, 401, { error: "Log in before generating flashcards." });
+    return;
+  }
+
   const body = await readJsonBody(request);
   const notes = await notesFromRequest(body);
   const warnings = [];
@@ -62,6 +73,20 @@ async function handleFlashcards(request, response) {
     warnings: [...warnings, ...result.warnings],
     json: result.json,
     markdown: result.markdown
+  });
+}
+
+async function handleLogin(request, response) {
+  const body = await readJsonBody(request);
+
+  if (!verifyStaticCredentials(body.username, body.password)) {
+    sendJson(response, 401, { error: "Invalid username or password." });
+    return;
+  }
+
+  sendJson(response, 200, {
+    token: createSessionToken(body.username),
+    username: body.username
   });
 }
 

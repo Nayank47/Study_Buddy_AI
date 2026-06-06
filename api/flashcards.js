@@ -1,4 +1,5 @@
 import { createFlashcards } from "../src/agent.js";
+import { isRequestAuthenticated } from "../src/auth.js";
 import { notesFromRequest } from "../src/requestNotes.js";
 
 export default async function handler(request, response) {
@@ -8,6 +9,11 @@ export default async function handler(request, response) {
   }
 
   try {
+    if (!isRequestAuthenticated(request)) {
+      response.status(401).json({ error: "Log in before generating flashcards." });
+      return;
+    }
+
     const body = typeof request.body === "string" ? JSON.parse(request.body) : request.body;
     const notes = await notesFromRequest(body ?? {});
     const warnings = [];
