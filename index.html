@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Buddy Agent</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Study Buddy</p>
+          <h1>Flashcard Agent</h1>
+        </div>
+        <div class="mode-toggle" title="Run without an API key">
+          <span>Demo</span>
+          <label class="switch">
+            <input id="mockMode" type="checkbox" checked>
+            <span></span>
+          </label>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <div class="input-panel">
+          <div id="dropZone" class="drop-zone">
+            <input id="fileInput" type="file" accept=".pdf,.txt,.md,.markdown,application/pdf,text/plain,text/markdown">
+            <div class="upload-mark">+</div>
+            <strong id="fileName">Choose PDF, TXT, or MD</strong>
+            <span id="fileMeta">No file selected</span>
+          </div>
+
+          <label class="notes-label" for="notesText">Notes</label>
+          <textarea id="notesText" placeholder="Paste notes here"></textarea>
+
+          <div class="actions">
+            <button id="generateButton" class="primary-button">Generate</button>
+            <button id="clearButton" class="secondary-button">Clear</button>
+          </div>
+          <p id="status" class="status" role="status"></p>
+        </div>
+
+        <div class="output-panel">
+          <div class="output-header">
+            <div>
+              <p class="eyebrow">Output</p>
+              <h2>Flashcards</h2>
+            </div>
+            <div class="download-actions">
+              <button id="downloadJson" class="icon-button" disabled title="Download JSON">JSON</button>
+              <button id="downloadMarkdown" class="icon-button" disabled title="Download Markdown">MD</button>
+            </div>
+          </div>
+          <div id="cards" class="cards empty-state">No flashcards yet</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
