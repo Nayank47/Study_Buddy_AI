@@ -30,5 +30,6 @@ test("validateFlashcards rejects duplicate cards", () => {
     "The duplicate supported concept appears in source notes."
   );
 
-  assert.ok(result.errors.some((error) => error.includes("duplicate")));
+  assert.ok(result.warnings.some((warning) => warning.includes("duplicate")));
+  assert.ok(result.errors.some((error) => error.includes("Expected at least 8")));
 });

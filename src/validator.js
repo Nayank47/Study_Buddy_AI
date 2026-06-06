@@ -46,7 +46,7 @@ export function validateFlashcards(payload, sourceNotes) {
     }
 
     if (cardErrors.length) {
-      errors.push(`Card ${index + 1}: ${cardErrors.join(", ")}.`);
+      warnings.push(`Dropped card ${index + 1}: ${cardErrors.join(", ")}.`);
       continue;
     }
 
