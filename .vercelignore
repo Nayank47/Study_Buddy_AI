@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.log
+src/server.js
+src/cli.js
+src/fileLoader.js
+test/
+examples/*-output.json
+examples/*-output.md
+study-buddy-agent-architecture.drawio
+study-buddy-agent-architecture.html
