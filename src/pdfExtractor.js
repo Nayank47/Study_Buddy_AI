@@ -1,6 +1,9 @@
-import { PDFParse } from "pdf-parse";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
 
 export async function extractPdfText(buffer, filePath = "PDF") {
+  const { PDFParse } = loadPdfParse();
   const parser = new PDFParse({ data: buffer });
   let text;
 
@@ -19,4 +22,12 @@ export async function extractPdfText(buffer, filePath = "PDF") {
   }
 
   return cleaned;
+}
+
+function loadPdfParse() {
+  try {
+    return require("pdf-parse");
+  } catch (error) {
+    throw new Error(`Could not load pdf-parse in this deployment: ${error.message}`);
+  }
 }
