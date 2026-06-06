@@ -45,7 +45,7 @@ loginForm.addEventListener("submit", async (event) => {
       })
     });
 
-    const data = await response.json();
+    const data = await readApiResponse(response);
     if (!response.ok) {
       throw new Error(data.error ?? "Login failed.");
     }
@@ -106,7 +106,7 @@ generateButton.addEventListener("click", async () => {
       body: JSON.stringify(payload)
     });
 
-    const data = await response.json();
+    const data = await readApiResponse(response);
     if (!response.ok) {
       if (response.status === 401) {
         localStorage.removeItem(SESSION_STORAGE_KEY);
@@ -299,4 +299,16 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+async function readApiResponse(response) {
+  const text = await response.text();
+
+  try {
+    return text ? JSON.parse(text) : {};
+  } catch {
+    return {
+      error: text || `Server returned ${response.status} ${response.statusText}.`
+    };
+  }
 }
