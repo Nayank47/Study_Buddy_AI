@@ -1,0 +1,88 @@
+{
+  "flashcards": [
+    {
+      "question": "What should you remember about Photosynthesis Process Plants?",
+      "answer": "Photosynthesis is the process plants, algae, and some bacteria use to convert light energy into chemical energy.",
+      "topic": "Photosynthesis Process Plants",
+      "difficulty": "easy",
+      "sourceHint": "Photosynthesis is the process plants, algae, and some bacteria use to convert li"
+    },
+    {
+      "question": "What should you remember about Chemical Energy Stored?",
+      "answer": "The chemical energy is stored in sugars such as glucose.",
+      "topic": "Chemical Energy Stored",
+      "difficulty": "easy",
+      "sourceHint": "The chemical energy is stored in sugars such as glucose."
+    },
+    {
+      "question": "What should you remember about Process Supports Most?",
+      "answer": "This process supports most food chains on Earth.",
+      "topic": "Process Supports Most",
+      "difficulty": "easy",
+      "sourceHint": "This process supports most food chains on Earth."
+    },
+    {
+      "question": "What should you remember about Plants Photosynthesis Happens?",
+      "answer": "In plants, photosynthesis happens mainly in chloroplasts.",
+      "topic": "Plants Photosynthesis Happens",
+      "difficulty": "medium",
+      "sourceHint": "In plants, photosynthesis happens mainly in chloroplasts."
+    },
+    {
+      "question": "What should you remember about Chloroplasts Contain Chlorophyll?",
+      "answer": "Chloroplasts contain chlorophyll, a green pigment that absorbs light.",
+      "topic": "Chloroplasts Contain Chlorophyll",
+      "difficulty": "medium",
+      "sourceHint": "Chloroplasts contain chlorophyll, a green pigment that absorbs light."
+    },
+    {
+      "question": "What should you remember about Chlorophyll Absorbs Blue?",
+      "answer": "Chlorophyll absorbs red and blue light strongly and reflects more green light, which is why many leaves look green.",
+      "topic": "Chlorophyll Absorbs Blue",
+      "difficulty": "medium",
+      "sourceHint": "Chlorophyll absorbs red and blue light strongly and reflects more green light, w"
+    },
+    {
+      "question": "What should you remember about Overall Photosynthesis Equation?",
+      "answer": "The overall photosynthesis equation is carbon dioxide plus water plus light energy producing glucose and oxygen.",
+      "topic": "Overall Photosynthesis Equation",
+      "difficulty": "medium",
+      "sourceHint": "The overall photosynthesis equation is carbon dioxide plus water plus light ener"
+    },
+    {
+      "question": "What should you remember about Carbon Dioxide Enters?",
+      "answer": "Carbon dioxide enters leaves through small openings called stomata.",
+      "topic": "Carbon Dioxide Enters",
+      "difficulty": "medium",
+      "sourceHint": "Carbon dioxide enters leaves through small openings called stomata."
+    },
+    {
+      "question": "What should you remember about Water Absorbed Roots?",
+      "answer": "Water is absorbed by roots and transported through the xylem.",
+      "topic": "Water Absorbed Roots",
+      "difficulty": "hard",
+      "sourceHint": "Water is absorbed by roots and transported through the xylem."
+    },
+    {
+      "question": "What should you remember about Light-Dependent Reactions Occur?",
+      "answer": "The light-dependent reactions occur in the thylakoid membranes of chloroplasts.",
+      "topic": "Light-Dependent Reactions Occur",
+      "difficulty": "hard",
+      "sourceHint": "The light-dependent reactions occur in the thylakoid membranes of chloroplasts."
+    },
+    {
+      "question": "What should you remember about Reactions Capture Light?",
+      "answer": "These reactions capture light energy and use it to produce ATP and NADPH.",
+      "topic": "Reactions Capture Light",
+      "difficulty": "hard",
+      "sourceHint": "These reactions capture light energy and use it to produce ATP and NADPH."
+    },
+    {
+      "question": "What should you remember about Oxygen Released Water?",
+      "answer": "Oxygen is released when water molecules are split.",
+      "topic": "Oxygen Released Water",
+      "difficulty": "hard",
+      "sourceHint": "Oxygen is released when water molecules are split."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "flashcards": [
+    {
+      "question": "What should you remember about Johannes Gutenberg Helped?",
+      "answer": "Johannes Gutenberg helped transform European communication by developing a movable-type printing system in the mid-fifteenth century.",
+      "topic": "Johannes Gutenberg Helped",
+      "difficulty": "easy",
+      "sourceHint": "Johannes Gutenberg helped transform European communication by developing a movab"
+    },
+    {
+      "question": "What should you remember about System Combined Metal?",
+      "answer": "His system combined metal movable type, oil-based ink, and a press adapted from existing screw presses.",
+      "topic": "System Combined Metal",
+      "difficulty": "easy",
+      "sourceHint": "His system combined metal movable type, oil-based ink, and a press adapted from"
+    },
+    {
+      "question": "What should you remember about Result Made Book?",
+      "answer": "The result made book production faster and more consistent than hand copying.",
+      "topic": "Result Made Book",
+      "difficulty": "easy",
+      "sourceHint": "The result made book production faster and more consistent than hand copying."
+    },
+    {
+      "question": "What should you remember about Widespread Printing Manuscripts?",
+      "answer": "Before widespread printing, manuscripts were copied by hand, often by scribes in monasteries or professional workshops.",
+      "topic": "Widespread Printing Manuscripts",
+      "difficulty": "medium",
+      "sourceHint": "Before widespread printing, manuscripts were copied by hand, often by scribes in"
+    },
+    {
+      "question": "What should you remember about Hand Copying Slow?",
+      "answer": "Hand copying was slow, expensive, and prone to variation.",
+      "topic": "Hand Copying Slow",
+      "difficulty": "medium",
+      "sourceHint": "Hand copying was slow, expensive, and prone to variation."
+    },
+    {
+      "question": "What should you remember about Books Cost Much?",
+      "answer": "Because books cost so much, access to written knowledge was limited.",
+      "topic": "Books Cost Much",
+      "difficulty": "medium",
+      "sourceHint": "Because books cost so much, access to written knowledge was limited."
+    },
+    {
+      "question": "What should you remember about Movable Type Allowed?",
+      "answer": "Movable type allowed printers to arrange individual letters into pages, print many copies, and then reuse the letters for new pages.",
+      "topic": "Movable Type Allowed",
+      "difficulty": "medium",
+      "sourceHint": "Movable type allowed printers to arrange individual letters into pages, print ma"
+    },
+    {
+      "question": "What should you remember about Lowered Labor Needed?",
+      "answer": "This lowered the labor needed to produce books.",
+      "topic": "Lowered Labor Needed",
+      "difficulty": "medium",
+      "sourceHint": "This lowered the labor needed to produce books."
+    },
+    {
+      "question": "What should you remember about Over Time Lower?",
+      "answer": "Over time, lower production costs helped books become more available to merchants, students, and professionals.",
+      "topic": "Over Time Lower",
+      "difficulty": "hard",
+      "sourceHint": "Over time, lower production costs helped books become more available to merchant"
+    },
+    {
+      "question": "What should you remember about Gutenberg Bible Most?",
+      "answer": "The Gutenberg Bible is one of the most famous early printed books in Europe.",
+      "topic": "Gutenberg Bible Most",
+      "difficulty": "hard",
+      "sourceHint": "The Gutenberg Bible is one of the most famous early printed books in Europe."
+    },
+    {
+      "question": "What should you remember about Demonstrated Printed Books?",
+      "answer": "It demonstrated that printed books could be beautiful as well as practical.",
+      "topic": "Demonstrated Printed Books",
+      "difficulty": "hard",
+      "sourceHint": "It demonstrated that printed books could be beautiful as well as practical."
+    },
+    {
+      "question": "What should you remember about Quality Helped Establish?",
+      "answer": "Its quality helped establish printing as a serious alternative to manuscript production.",
+      "topic": "Quality Helped Establish",
+      "difficulty": "hard",
+      "sourceHint": "Its quality helped establish printing as a serious alternative to manuscript pro"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "flashcards": [
+    {
+      "question": "What should you remember about Http Request-Response Protocol?",
+      "answer": "HTTP is a request-response protocol used by clients and servers to exchange resources over the web.",
+      "topic": "Http Request-Response Protocol",
+      "difficulty": "easy",
+      "sourceHint": "HTTP is a request-response protocol used by clients and servers to exchange reso"
+    },
+    {
+      "question": "What should you remember about Client Sends Request?",
+      "answer": "A client sends a request with a method, path, headers, and sometimes a body.",
+      "topic": "Client Sends Request",
+      "difficulty": "easy",
+      "sourceHint": "A client sends a request with a method, path, headers, and sometimes a body."
+    },
+    {
+      "question": "What should you remember about Server Returns Response?",
+      "answer": "The server returns a response with a status code, headers, and sometimes a body.",
+      "topic": "Server Returns Response",
+      "difficulty": "easy",
+      "sourceHint": "The server returns a response with a status code, headers, and sometimes a body."
+    },
+    {
+      "question": "What should you remember about Requests Normally Used?",
+      "answer": "GET requests are normally used to retrieve data and should not change server state.",
+      "topic": "Requests Normally Used",
+      "difficulty": "medium",
+      "sourceHint": "GET requests are normally used to retrieve data and should not change server sta"
+    },
+    {
+      "question": "What should you remember about Post Requests Commonly?",
+      "answer": "POST requests are commonly used to create resources or trigger operations that change state.",
+      "topic": "Post Requests Commonly",
+      "difficulty": "medium",
+      "sourceHint": "POST requests are commonly used to create resources or trigger operations that c"
+    },
+    {
+      "question": "What should you remember about Requests Usually Replace?",
+      "answer": "PUT requests usually replace an existing resource, while PATCH requests usually update part of a resource.",
+      "topic": "Requests Usually Replace",
+      "difficulty": "medium",
+      "sourceHint": "PUT requests usually replace an existing resource, while PATCH requests usually"
+    },
+    {
+      "question": "What should you remember about Status Codes Summarize?",
+      "answer": "Status codes summarize the result of a request.",
+      "topic": "Status Codes Summarize",
+      "difficulty": "medium",
+      "sourceHint": "Status codes summarize the result of a request."
+    },
+    {
+      "question": "What should you remember about Codes Range Indicate?",
+      "answer": "Codes in the 200 range indicate success, codes in the 300 range indicate redirection, codes in the 400 range indicate client errors, and codes in the 500 range indicate server errors.",
+      "topic": "Codes Range Indicate",
+      "difficulty": "medium",
+      "sourceHint": "Codes in the 200 range indicate success, codes in the 300 range indicate redirec"
+    },
+    {
+      "question": "What should you remember about Authentication Proves Requester?",
+      "answer": "Authentication proves who the requester is, while authorization decides what the requester is allowed to do.",
+      "topic": "Authentication Proves Requester",
+      "difficulty": "hard",
+      "sourceHint": "Authentication proves who the requester is, while authorization decides what the"
+    },
+    {
+      "question": "What should you remember about Keys Simple Credentials?",
+      "answer": "API keys are simple credentials, but they should be treated like passwords and stored outside source code.",
+      "topic": "Keys Simple Credentials",
+      "difficulty": "hard",
+      "sourceHint": "API keys are simple credentials, but they should be treated like passwords and s"
+    },
+    {
+      "question": "What should you remember about Oauth Often Used?",
+      "answer": "OAuth is often used when an app needs delegated access to a user's resources.",
+      "topic": "Oauth Often Used",
+      "difficulty": "hard",
+      "sourceHint": "OAuth is often used when an app needs delegated access to a user's resources."
+    },
+    {
+      "question": "What should you remember about Restful Apis Organize?",
+      "answer": "RESTful APIs organize actions around resources and use standard HTTP methods.",
+      "topic": "Restful Apis Organize",
+      "difficulty": "hard",
+      "sourceHint": "RESTful APIs organize actions around resources and use standard HTTP methods."
+    }
+  ]
+}

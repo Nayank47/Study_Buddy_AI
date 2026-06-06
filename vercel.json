@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/flashcards.js": {
+      "maxDuration": 30
+    }
+  }
+}
