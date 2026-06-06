@@ -1,7 +1,0 @@
-node_modules/
-.env
-*.log
-examples/*-output.json
-examples/*-output.md
-study-buddy-agent-architecture.drawio
-study-buddy-agent-architecture.html
