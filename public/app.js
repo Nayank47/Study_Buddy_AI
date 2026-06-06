@@ -1,3 +1,9 @@
+const loginScreen = document.querySelector("#loginScreen");
+const loginForm = document.querySelector("#loginForm");
+const usernameInput = document.querySelector("#usernameInput");
+const passwordInput = document.querySelector("#passwordInput");
+const loginStatus = document.querySelector("#loginStatus");
+const appShell = document.querySelector("#appShell");
 const fileInput = document.querySelector("#fileInput");
 const fileName = document.querySelector("#fileName");
 const fileMeta = document.querySelector("#fileMeta");
@@ -10,10 +16,53 @@ const statusLine = document.querySelector("#status");
 const cardsEl = document.querySelector("#cards");
 const downloadJson = document.querySelector("#downloadJson");
 const downloadMarkdown = document.querySelector("#downloadMarkdown");
+const currentUser = document.querySelector("#currentUser");
+const logoutButton = document.querySelector("#logoutButton");
 
+const SESSION_STORAGE_KEY = "studyBuddySession";
 let selectedFile = null;
 let latestJson = "";
 let latestMarkdown = "";
+
+const savedSession = loadSession();
+if (savedSession?.token) {
+  showApp(savedSession.username);
+} else {
+  showLogin();
+}
+
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  setLoginStatus("Logging in...");
+
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: usernameInput.value,
+        password: passwordInput.value
+      })
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.error ?? "Login failed.");
+    }
+
+    saveSession(data);
+    passwordInput.value = "";
+    showApp(data.username);
+  } catch (error) {
+    setLoginStatus(error.message, true);
+  }
+});
+
+logoutButton.addEventListener("click", () => {
+  localStorage.removeItem(SESSION_STORAGE_KEY);
+  clearResults();
+  showLogin();
+});
 
 fileInput.addEventListener("change", () => {
   selectedFile = fileInput.files[0] ?? null;
@@ -47,14 +96,22 @@ generateButton.addEventListener("click", async () => {
 
   try {
     const payload = await buildPayload();
+    const session = loadSession();
     const response = await fetch("/api/flashcards", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session?.token ?? ""}`
+      },
       body: JSON.stringify(payload)
     });
 
     const data = await response.json();
     if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem(SESSION_STORAGE_KEY);
+        showLogin();
+      }
       throw new Error(data.error ?? "Generation failed.");
     }
 
@@ -127,13 +184,28 @@ function renderCards(cards) {
         .map((item) => `<span class="pill">${escapeHtml(item)}</span>`)
         .join("");
 
-      return `<article class="flashcard">
-        <h3>${index + 1}. ${escapeHtml(card.question)}</h3>
-        <p>${escapeHtml(card.answer)}</p>
-        ${meta ? `<div class="meta-row">${meta}</div>` : ""}
-      </article>`;
+      return `<button class="flashcard" type="button" aria-pressed="false">
+        <span class="card-inner">
+          <span class="card-face card-front">
+            <span class="card-kicker">Question ${index + 1}</span>
+            <span class="card-text">${escapeHtml(card.question)}</span>
+            ${meta ? `<span class="meta-row">${meta}</span>` : ""}
+          </span>
+          <span class="card-face card-back">
+            <span class="card-kicker">Answer</span>
+            <span class="card-text">${escapeHtml(card.answer)}</span>
+          </span>
+        </span>
+      </button>`;
     })
     .join("");
+
+  for (const card of cardsEl.querySelectorAll(".flashcard")) {
+    card.addEventListener("click", () => {
+      const isFlipped = card.classList.toggle("is-flipped");
+      card.setAttribute("aria-pressed", String(isFlipped));
+    });
+  }
 }
 
 function clearResults() {
@@ -153,6 +225,43 @@ function setBusy(isBusy) {
 function setStatus(message, isError = false) {
   statusLine.textContent = message;
   statusLine.classList.toggle("error", isError);
+}
+
+function setLoginStatus(message, isError = false) {
+  loginStatus.textContent = message;
+  loginStatus.classList.toggle("error", isError);
+}
+
+function showApp(username) {
+  loginScreen.classList.add("is-hidden");
+  appShell.classList.remove("is-hidden");
+  currentUser.textContent = username ? `Signed in as ${username}` : "";
+  setLoginStatus("");
+}
+
+function showLogin() {
+  appShell.classList.add("is-hidden");
+  loginScreen.classList.remove("is-hidden");
+  currentUser.textContent = "";
+  usernameInput.focus();
+}
+
+function saveSession(session) {
+  localStorage.setItem(
+    SESSION_STORAGE_KEY,
+    JSON.stringify({
+      token: session.token,
+      username: session.username
+    })
+  );
+}
+
+function loadSession() {
+  try {
+    return JSON.parse(localStorage.getItem(SESSION_STORAGE_KEY));
+  } catch {
+    return null;
+  }
 }
 
 function fileToBase64(file) {

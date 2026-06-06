@@ -7,18 +7,35 @@
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <main class="app-shell">
+    <section id="loginScreen" class="login-screen">
+      <form id="loginForm" class="login-panel">
+        <p class="eyebrow">Study Buddy</p>
+        <h1>Log in</h1>
+        <label for="usernameInput">Username</label>
+        <input id="usernameInput" name="username" autocomplete="username" required>
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" name="password" type="password" autocomplete="current-password" required>
+        <button class="primary-button" type="submit">Log in</button>
+        <p id="loginStatus" class="status" role="status"></p>
+      </form>
+    </section>
+
+    <main id="appShell" class="app-shell is-hidden">
       <header class="topbar">
         <div>
           <p class="eyebrow">Study Buddy</p>
           <h1>Flashcard Agent</h1>
         </div>
-        <div class="mode-toggle" title="Run without an API key">
-          <span>Demo</span>
-          <label class="switch">
-            <input id="mockMode" type="checkbox" checked>
-            <span></span>
-          </label>
+        <div class="topbar-controls">
+          <div class="mode-toggle" title="Run without an API key">
+            <span>Demo</span>
+            <label class="switch">
+              <input id="mockMode" type="checkbox" checked>
+              <span></span>
+            </label>
+          </div>
+          <span id="currentUser" class="current-user"></span>
+          <button id="logoutButton" class="secondary-button" type="button">Log out</button>
         </div>
       </header>
 
